@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style/style.css') }}"
+    />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/indoor_quality">Indoor Quality</a></li>
+        {% if username %}
+        <li><span>Welcome, {{ username }}</span></li>
+        <li><a href="/logout">Logout</a></li>
+        {% else %}
+        <li><a href="/login">Login</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <section id="dashboard">
+      <h2>Outdoor Air Quality</h2>
+      <div class="grid-container">
+        <div class="parameter">
+          <div class="icon temperature"></div>
+          <p class="label">Temperature</p>
+          <p class="value temperature">{{ dashboard_data.temperature }}°C</p>
+        </div>
+        <div class="parameter">
+          <div class="icon humidity"></div>
+          <p class="label">Humidity</p>
+          <p class="value humidity">{{ dashboard_data.humidity }}%</p>
+        </div>
+        <div class="parameter">
+          <div class="icon pm25"></div>
+          <p class="label">PM2.5</p>
+          <p class="value pm25">{{ dashboard_data.pm25 }}</p>
+        </div>
+        <div class="parameter">
+          <div class="icon pm10"></div>
+          <p class="label">PM10</p>
+          <p class="value pm10">{{ dashboard_data.pm10 }}</p>
+        </div>
+        <div class="parameter">
+          <div class="icon co2"></div>
+          <p class="label">CO2</p>
+          <p class="value co2">{{ dashboard_data.co2 }}</p>
+        </div>
+      </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='scripts/dashboard.js') }}"></script>
+  </body>
+</html>
