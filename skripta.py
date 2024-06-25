@@ -9,9 +9,9 @@ CORS(app)
 dashboard_data = {
     "temperature": 25,
     "humidity": 60,
-    "pm25": 15,
-    "pm10": 20,
-    "co2": 400
+    "pressure": 1013,
+    "wind_speed": 5,
+    "wind_deg": 180,
 }
 
 # Zakucani podaci za indoor quality
@@ -39,7 +39,7 @@ def indoor_quality():
         username = session['username']
         is_admin = username in ['maja', 'ana']
         return render_template("indoor_quality.html", indoor_data=indoor_data, is_admin=is_admin, username=username)
-    return redirect(url_for('login'))
+    return render_template("indoor_quality.html", indoor_data=indoor_data)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():

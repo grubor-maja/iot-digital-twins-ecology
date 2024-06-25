@@ -8,6 +8,11 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style/style.css') }}"
     />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <nav>
@@ -25,35 +30,39 @@
 
     <section id="dashboard">
       <h2>Outdoor Air Quality</h2>
+      <div id="map" style="height: 400px"></div>
       <div class="grid-container">
         <div class="parameter">
-          <div class="icon temperature"></div>
+          <div class="icon"><i class="fas fa-thermometer-half"></i></div>
           <p class="label">Temperature</p>
           <p class="value temperature">{{ dashboard_data.temperature }}°C</p>
         </div>
         <div class="parameter">
-          <div class="icon humidity"></div>
+          <div class="icon"><i class="fas fa-tint"></i></div>
           <p class="label">Humidity</p>
           <p class="value humidity">{{ dashboard_data.humidity }}%</p>
         </div>
         <div class="parameter">
-          <div class="icon pm25"></div>
-          <p class="label">PM2.5</p>
-          <p class="value pm25">{{ dashboard_data.pm25 }}</p>
+          <div class="icon"><i class="fas fa-wind"></i></div>
+          <p class="label">Pressure</p>
+          <p class="value pressure">{{ dashboard_data.pressure }} hPa</p>
         </div>
         <div class="parameter">
-          <div class="icon pm10"></div>
-          <p class="label">PM10</p>
-          <p class="value pm10">{{ dashboard_data.pm10 }}</p>
+          <div class="icon"><i class="fas fa-compass"></i></div>
+          <p class="label">Wind Speed</p>
+          <p class="value wind_speed">{{ dashboard_data.wind_speed }} m/s</p>
         </div>
         <div class="parameter">
-          <div class="icon co2"></div>
-          <p class="label">CO2</p>
-          <p class="value co2">{{ dashboard_data.co2 }}</p>
+          <div class="icon"><i class="fas fa-compass"></i></div>
+          <p class="label">Wind Direction</p>
+          <p class="value wind_deg">{{ dashboard_data.wind_deg }}°</p>
         </div>
       </div>
+      <canvas id="airQualityChart" width="400" height="200"></canvas>
     </section>
 
     <script src="{{ url_for('static', filename='scripts/dashboard.js') }}"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>
 </html>
