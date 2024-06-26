@@ -93,19 +93,29 @@ h1, h2 {
 }
 
 
-.parameter .icon.temperature { background-color: #ffcccb; }
-.parameter .icon.humidity { background-color: #add8e6; }
-.parameter .icon.pressure { background-color: #ffcccb; }
-.parameter .icon.wind_speed { background-color: #add8e6; }
-.parameter .icon.wind_deg { background-color: #ffcccb; }
+.parameter .icon.temperature { background-color: #D2AFB3; }
+.parameter .icon.humidity { background-color: #ECEDED; }
+.parameter .icon.pressure { background-color: #79B1BB; }
+.parameter .icon.wind_speed { background-color: #D2D2D2; }
+.parameter .icon.wind_deg { background-color: #DCD2C8; }
+
+.parameter .icon.mq2 { background-color: #FFE4D9; }
+.parameter .icon.mq7 { background-color: #E9D9E6; }
+.parameter .icon.mq135 { background-color: #F5E4E5; }
+.parameter .icon.dht11 { background-color: #BAE8D9; }
+.parameter .icon.ml8511 { background-color: #B3D6E8; }
 
 .parameter .label {
   font-weight: bold;
   margin-bottom: 10px;
+  font-size: 25px;
 }
 
 .parameter .value {
-  font-size: 18px;
+  font-size: 25px;
+  background-color: lightgray;
+  margin-top: 20px;
+  font-weight: bold;
 }
 
 /* Login Page */
@@ -150,4 +160,10 @@ h1, h2 {
 
 #login button:hover {
   background-color: #555;
+}
+
+.sensor-select{
+  font-size: 18px;
+  border-radius: 8px;
+  padding-left: 10px;
 }

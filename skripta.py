@@ -19,13 +19,15 @@ indoor_data = {
     "mq2": 200,
     "mq7": 150,
     "mq135": 180,
-    "dht11": 75
+    "dht11": 75,
+    "ml8511":104
 }
 
 # Zakucani podaci za korisnike
 users = {
     "maja": "maja",
-    "ana": "ana"
+    "ana": "ana",
+    "sara":"sara"
 }
 
 @app.route("/")

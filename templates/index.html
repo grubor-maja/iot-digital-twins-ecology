@@ -39,32 +39,33 @@
 
       <div class="grid-container">
         <div class="parameter">
-          <div class="icon"><i class="fas fa-thermometer-half"></i></div>
+          <div class="icon temperature"><i class="fas fa-thermometer-half"></i></div>
           <p class="label">Temperature</p>
           <p class="value temperature">{{ dashboard_data.temperature }}°C</p>
         </div>
         <div class="parameter">
-          <div class="icon"><i class="fas fa-tint"></i></div>
+          <div class="icon humidity"><i class="fas fa-tint"></i></div>
           <p class="label">Humidity</p>
           <p class="value humidity">{{ dashboard_data.humidity }}%</p>
         </div>
         <div class="parameter">
-          <div class="icon"><i class="fas fa-wind"></i></div>
+          <div class="icon pressure"><i class="fas fa-wind"></i></div>
           <p class="label">Pressure</p>
           <p class="value pressure">{{ dashboard_data.pressure }} hPa</p>
         </div>
         <div class="parameter">
-          <div class="icon"><i class="fas fa-compass"></i></div>
+          <div class="icon wind_speed"><i class="fas fa-compass"></i></div>
           <p class="label">Wind Speed</p>
           <p class="value wind_speed">{{ dashboard_data.wind_speed }} m/s</p>
         </div>
         <div class="parameter">
-          <div class="icon"><i class="fas fa-compass"></i></div>
+          <div class="icon wind_deg"><i class="fas fa-compass"></i></div>
           <p class="label">Wind Direction</p>
           <p class="value wind_deg">{{ dashboard_data.wind_deg }}°</p>
         </div>
       </div>
-      <canvas id="airQualityChart" width="400" height="200"></canvas>
+      <hr>
+      <canvas id="airQualityChart" width="400" height="200" style="margin-top: 20px;"></canvas>
     </section>
 
     <script src="{{ url_for('static', filename='scripts/dashboard.js') }}"></script>
