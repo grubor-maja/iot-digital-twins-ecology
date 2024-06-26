@@ -20,7 +20,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/indoor_quality">Indoor Quality</a></li>
         {% if username %}
-        <li><span>Welcome, {{ username }}</span></li>
+        <li class ="welcome"><span>Welcome, {{ username }}!</span></li>
         <li><a href="/logout">Logout</a></li>
         {% else %}
         <li><a href="/login">Login</a></li>
@@ -29,8 +29,14 @@
     </nav>
 
     <section id="dashboard">
-      <h2>Outdoor Air Quality</h2>
+      <h1>Outdoor Air Quality</h1>
+      <div class="city-input">
+        <input type="text" id="cityName" placeholder="Enter city name" />
+        <button id="fetchDataButton">Get data!</button>
+      </div>
+      <br />
       <div id="map" style="height: 400px"></div>
+
       <div class="grid-container">
         <div class="parameter">
           <div class="icon"><i class="fas fa-thermometer-half"></i></div>
