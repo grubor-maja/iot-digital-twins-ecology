@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Indoor Quality</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style/style.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}" />
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.freepik.com/512/4431/4431647.png">
   </head>
   <body>
     <nav>
@@ -15,7 +13,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="/indoor_quality">Indoor Quality</a></li>
         {% if username %}
-        <li><span>Welcome, {{ username }}</span></li>
+        <li class="welcome"><span>Welcome, {{ username }}!</span></li>
         <li><a href="/logout">Logout</a></li>
         {% else %}
         <li><a href="/login">Login</a></li>
@@ -24,33 +22,52 @@
     </nav>
 
     <section id="dashboard">
-      <h2>Indoor Air Quality</h2>
+      <h1>Indoor Air Quality</h1>
       <div class="grid-container">
         <div class="parameter">
           <div class="icon mq2"></div>
           <p class="label">MQ2</p>
+          <p>(Methane, Butane, LPG, smoke)</p>
           <p class="value mq2">{{ indoor_data.mq2 }}</p>
         </div>
         <div class="parameter">
           <div class="icon mq7"></div>
           <p class="label">MQ7</p>
+          <p>(Carbon Monoxide) </p>
           <p class="value mq7">{{ indoor_data.mq7 }}</p>
         </div>
         <div class="parameter">
           <div class="icon mq135"></div>
           <p class="label">MQ135</p>
+          <p> (Benzene, Alcohol, smoke)</p>
           <p class="value mq135">{{ indoor_data.mq135 }}</p>
         </div>
         <div class="parameter">
           <div class="icon dht11"></div>
           <p class="label">DHT11</p>
+          <p> (Air humidity and temperature)</p>
           <p class="value dht11">{{ indoor_data.dht11 }}</p>
         </div>
+        <div class="parameter">
+          <div class="icon ml8511"></div>
+          <p class="label">UV ML8511</p>
+          <p> (Detection of UV light)</p>
+          <p class="value ml8511">{{ indoor_data.ml8511 }}</p>
+        </div>
       </div>
+      <hr>
       {% if is_admin %}
       <div>
-        <h3>Admin Options</h3>
+        <h2 style="margin-top: 20px;">Admin Options</h2>
         <!-- Admin deo koji treba da dodamo...mogucnost da se biraju senzori -->
+        <label for="sensor-select" style="font-size: 20px;">Choose a sensor:</label>
+        <select class="sensor-select" name="sensors">
+          <option value="mq2">MQ2</option>
+          <option value="mq7">MQ7</option>
+          <option value="mq135">MQ135</option>
+          <option value="dht11">DHT11</option>
+          <option value="ml8511">UV ML8511</option>
+        </select>
       </div>
       {% endif %}
     </section>
